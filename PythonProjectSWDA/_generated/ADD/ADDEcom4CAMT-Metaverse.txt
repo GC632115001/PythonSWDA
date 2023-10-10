@@ -1,0 +1,48 @@
+@startuml
+skinparam monochrome true
+skinparam ClassBackgroundColor White
+hide empty members
+hide circle
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+left to right direction
+class "<b>What can we do to enhance data security within</b>\n<b>our company? : Decision</b>" as __1_What_can_we_do_to_enhance_data_security_within_our_company_ <<Single Answers>> 
+class "<b>Make the development process that is efficiency</b>\n<b>and won't leak : Design Solution</b>" as __2_Make_the_development_process_that_is_efficiency_and_won_t_leak
+class "<b>How to make the development process to be more</b>\n<b>secure? : Decision</b>" as __3_How_to_make_the_development_process_to_be_more_secure_ <<Single Answers>> 
+class "<b>Require ongoing security training for the development</b>\n<b>team, and require that all newly developed APIs,</b>\n<b>microservices, integrations, and applications</b>\n<b>instrument the required security tests in their</b>\n<b>CI/CD pipelines. : Practice</b>" as __4_Require_ongoing_security_training_for_the_development_team__and_require_that_all_newly_developed_APIs__microservices__integrations__and_applications_instrument_the_required_security_tests_in_their_CI_CD_pipelines_ {
+background reading = "s13"
+}
+
+class "<b>Restricted user to only necessary area : Practice</b>" as __5_Restricted_user_to_only_necessary_area {
+background reading = "s06"
+}
+
+class "<b>Secure the data transportation : Practice</b>" as __6_Secure_the_data_transportation {
+background reading = "s11"
+}
+
+class "<b>Secure and protect data from leaks : Design Solution</b>" as __7_Secure_and_protect_data_from_leaks
+class "<b>How to secure the data of the company? : Decision</b>" as __8_How_to_secure_the_data_of_the_company_ <<Single Answers>> 
+class "<b>Personal or sensitive data has to be protected</b>\n<b>with encryption : Practice</b>" as __9_Personal_or_sensitive_data_has_to_be_protected_with_encryption {
+background reading = "s06"
+}
+
+class "<b>Adopt data governance, educate on data practices,</b>\n<b>centralized identity management, and implement</b>\n<b>data lineage capabilities. : Practice</b>" as __10_Adopt_data_governance__educate_on_data_practices__centralized_identity_management__and_implement_data_lineage_capabilities_ {
+background reading = "s13"
+}
+
+class "<b>Implement automated security testing, avoid access</b>\n<b>to repositories, and apply the principle of least</b>\n<b>privilege. : Practice</b>" as __11_Implement_automated_security_testing__avoid_access_to_repositories__and_apply_the_principle_of_least_privilege_ {
+background reading = "s13"
+}
+
+__1_What_can_we_do_to_enhance_data_security_within_our_company_ --> __2_Make_the_development_process_that_is_efficiency_and_won_t_leak: <<Option>>\n{name = "Dev process"}
+__1_What_can_we_do_to_enhance_data_security_within_our_company_ --> __7_Secure_and_protect_data_from_leaks: <<Option>>\n{name = "Secure data"}
+__2_Make_the_development_process_that_is_efficiency_and_won_t_leak --> __3_How_to_make_the_development_process_to_be_more_secure_
+__3_How_to_make_the_development_process_to_be_more_secure_ --> __4_Require_ongoing_security_training_for_the_development_team__and_require_that_all_newly_developed_APIs__microservices__integrations__and_applications_instrument_the_required_security_tests_in_their_CI_CD_pipelines_: <<Option>>\n{name = "Exposure of sensitive data"}
+__3_How_to_make_the_development_process_to_be_more_secure_ --> __5_Restricted_user_to_only_necessary_area: <<Option>>\n{name = "Broken access control"}
+__3_How_to_make_the_development_process_to_be_more_secure_ --> __6_Secure_the_data_transportation: <<Option>>\n{name = "Insufficient transport layer protection"}
+__7_Secure_and_protect_data_from_leaks --> __8_How_to_secure_the_data_of_the_company_
+__8_How_to_secure_the_data_of_the_company_ --> __9_Personal_or_sensitive_data_has_to_be_protected_with_encryption: <<Option>>\n{name = "Exposure of sensitive data"}
+__8_How_to_secure_the_data_of_the_company_ --> __10_Adopt_data_governance__educate_on_data_practices__centralized_identity_management__and_implement_data_lineage_capabilities_: <<Option>>\n{name = "Securing and managing sensitive data"}
+__8_How_to_secure_the_data_of_the_company_ --> __11_Implement_automated_security_testing__avoid_access_to_repositories__and_apply_the_principle_of_least_privilege_: <<Option>>\n{name = "Unfettered access to source code repositories\nand CI/CD pipelines"}
+@enduml
